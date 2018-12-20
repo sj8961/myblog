@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>article-page</title>
+</head>
+<body>
+    <
+    <div>
+        <input type="hidden" name="article_id" value="{{article.id | default:'0'}}"/>
+    <form>
+        <h2><label>{{article.title}}</label></h2>
+    </form>
+        <br/>
+    <form>
+        <h3><label>{{article.content}}</label></h3>
+    </form>
+    </div>
+    <br/>
+    <br/>
+    <a href="{% url 'edit_page' article.id %}">修改</a>
+</body>
+</html>

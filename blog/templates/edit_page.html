@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>edit page</title>
+</head>
+<body>
+<form id="create_topic_form" method="post" action="{% url 'article_new' %}">
+    {% csrf_token %}
+    <input type="hidden" name="article_id" value="{{article.id}}"/>
+    <label>文章标题</label>
+    <textarea autofocus class='span9' id='title'
+              name='title' rows='1'
+              placeholder="{{article.title}}"></textarea>
+    <br/>
+    <label>文章内容</label>
+    <textarea autofocus class='span9' id='content'
+              name='content' rows='10'
+              placeholder="{{article.content}}"></textarea>
+    <br/>
+    <input type="submit" class='span-primary submit_btn' data-loading-text="提交中" value="提交">
+
+</form>
+</body>
+</html>

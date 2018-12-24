@@ -1,20 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>myblog</title>
-</head>
-<body>
-    <h2><a href="{% url 'edit_page' 0 %}">写新文章 </a></h2>
+
+{% extends 'base.html' %}
+{% block title %}BLOG主页{% endblock %}
+{% block content %}
+
+<div class="col-md-8" id="post-item" role="main">
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+        <h2><a href="{% url 'edit_page' 0 %}">写新文章 </a></h2>
     <br/>
     {% for article in articles %}
         <!--{{article.id}}-->
-        <a href="{% url 'article_page' article.id %}"> {{article.title}} </a>
-        <a href="{% url 'dele_page' article.id %}">删除</a>
-    <br/><br/>
 
-    {% endfor %}
+    <br/>
+        <ul class="post-meta">
+            <li itemprop="author" ><a itemprop="name"  rel="author"></a></li>
+            <a href="{% url 'article_page' article.id %}"> {{article.title}} </a>
+            <a href="{% url 'dele_page' article.id %}">删除</a>
+        </ul>
+        <div class="post-content markdown-body">
+        </div>
+     {% endfor %}
 
-    <h2> HELLO </h2>
-</body>
-</html>
+    </article>
+    <ul class="post-near">
+        <li>上一篇: </li>
+        <li>下一篇: </li>
+    </ul>
+</div>
+
+
+{% endblock %}

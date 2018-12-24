@@ -1,0 +1,15 @@
+
+{% extends 'base.html' %}
+{% block title %}BLOG主页{% endblock %}
+{% block content %}
+
+    <h2><a href="{% url 'edit_page' 0 %}">写新文章 </a></h2>
+    <br/>
+    {% for article in articles %}
+        <!--{{article.id}}-->
+        <a href="{% url 'article_page' article.id %}"> {{article.title}} </a>
+        <a href="{% url 'dele_page' article.id %}">删除</a>
+    <br/><br/>
+  {% endfor %}
+
+{% endblock %}
